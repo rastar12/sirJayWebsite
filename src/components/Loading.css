@@ -1,0 +1,16 @@
+/* src/components/Loading.css */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+}
+
+.loading-logo {
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 20px; /* Space between logo and text */
+}
