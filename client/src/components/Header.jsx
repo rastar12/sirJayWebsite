@@ -1,48 +1,21 @@
 import React, { useState } from "react";
-import Logo from "../assets/logo/logo8.png"
+import Logo from "../assets/logo/logo8.png";
 import { MdMenu, MdClose } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const NavbarMenu = [
-  {
-    id: 1,
-    title: "Home",
-    link: "/",
-  },
-  {
-    id: 2,
-    title: "Courses",
-    link: "/Courses",
-  },
-  {
-    id: 3,
-    title: "testimonials",
-    link: "/Testimonials",
-  },
-  {
-    id: 4,
-    title: "About",
-    link: "/About",
-  },
-  {
-    id: 5,
-    title: "Admissions",
-    link: "/Admissions",
-
-  },
-  {
-    id: 5,
-    title: "Contact Us",
-    link: "/ContactUs",
-  },
+  { id: 1, title: "Home", link: "/" },
+  { id: 2, title: "Courses", link: "/Courses" },
+  { id: 3, title: "Testimonials", link: "/Testimonials" },
+  { id: 4, title: "About", link: "/About" },
+  { id: 5, title: "Admissions", link: "/Admissions" },
+  { id: 6, title: "Contact Us", link: "/ContactUs" },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Function to toggle the menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -55,31 +28,27 @@ const Navbar = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className="container flex justify-between items-center"
       >
-        {/* logo section */}
+        {/* Logo section */}
         <div>
           <img src={Logo} alt="Logo" className="max-w-[100px] invert" />
           <p className="font-extrabold text-2xl">Sir Jay Fashion School</p>
         </div>
-        {/* Menu section for desktop */}
-
-        
+        {/* Desktop menu */}
         <div className="hidden md:block">
           <ul className="flex items-center gap-4 relative z-40">
             {NavbarMenu.map((item) => (
               <li key={item.id}>
-                  <Link to={item.link}
-                    className="inline-block text-base font-semibold py-2 px-3 uppercase"
-                  >
-                    {item.title}
-                  
-                  </Link>
-
-                
+                <Link
+                  to={item.link}
+                  className="inline-block text-base font-semibold py-2 px-3 uppercase"
+                >
+                  {item.title}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
-        {/* Hamburger Icon for mobile */}
+        {/* Hamburger icon for mobile */}
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-4xl">
             {menuOpen ? <MdClose /> : <MdMenu />}
@@ -98,12 +67,11 @@ const Navbar = () => {
           <ul className="space-y-4 text-center">
             {NavbarMenu.map((item) => (
               <li key={item.id}>
-                <a href={item.link} className="block text-base font-semibold">
+                <Link to={item.link} className="block text-base font-semibold">
                   {item.title}
-                </a>
+                </Link>
               </li>
             ))}
-
           </ul>
         </motion.div>
       )}
